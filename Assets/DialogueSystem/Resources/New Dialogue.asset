@@ -1,0 +1,57 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-87503817688185156
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f1ff8f7fb9616041a10a40d58068edc, type: 3}
+  m_Name: 537f63a540157454990469369279d446
+  m_EditorClassIdentifier: 
+  guid: 537f63a540157454990469369279d446
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5bbc3ba7c353a4c43a7f25c00ebdb1cd, type: 3}
+  m_Name: New Dialogue
+  m_EditorClassIdentifier: 
+  repeatable: 0
+--- !u!114 &6500378408060030544
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47f454121c55c734b8d217448e7947a1, type: 3}
+  m_Name: 8f7ae3a03fa07ac429bff86c1aeed64b
+  m_EditorClassIdentifier: 
+  guid: 8f7ae3a03fa07ac429bff86c1aeed64b
+--- !u!114 &7716136765224996298
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e18d07d17e7665409f985acefab3b6c, type: 3}
+  m_Name: 2f39b723b55ec884ba3bcb65095b5ad2
+  m_EditorClassIdentifier: 
+  guid: 2f39b723b55ec884ba3bcb65095b5ad2
+  line: '[Unwritten Dialogue]'
+  speaker: {fileID: 0}
+  playerChoice: 0
