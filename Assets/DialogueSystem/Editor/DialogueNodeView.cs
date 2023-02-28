@@ -15,11 +15,7 @@ namespace DialogueSystem.Editor
         public DialogueNodeView(DialogueNode node)
         {
             this.node = node;
-            this.title = node.GetType().Name+" "+node.GetID();
-            if(node.GetType() == typeof(LineNode))
-            {
-                this.title = (node as LineNode).GetLine();
-            }
+            this.title = node.GetLine();
             
             this.viewDataKey = node.GetID();
             style.left = node.GetPosition().x;

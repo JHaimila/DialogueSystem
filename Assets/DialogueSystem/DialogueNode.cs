@@ -5,7 +5,7 @@ using UnityEditor;
 
 namespace  DialogueSystem
 {
-    public abstract class DialogueNode : ScriptableObject
+    public class DialogueNode : ScriptableObject
     {
         
         internal List<DialogueNode> connections;
@@ -14,25 +14,31 @@ namespace  DialogueSystem
         
         private Vector2 nodePosition;
         public event System.Action ValueChanged;
+        [SerializeField, TextArea(3, 10)] private string line;
+        [SerializeField] private Speaker speaker;
+        [SerializeField] private bool playerChoice;
+        [SerializeField] private List<string> conditions;
+
+        public void SetDefault()
+        {
+            line = "[Unwritten Dialogue]";
+        }
+        public string GetLine()
+        {
+            return line;
+        }
+        public Speaker GetSpeaker()
+        {
+            return speaker;
+        }
+        public bool IsPlayerChoice()
+        {
+            return playerChoice;
+        }
         
         public List<DialogueNode> GetConnections()
         {
-            List<DialogueNode> returnConnections = new List<DialogueNode>();
-            foreach(var connection in connections)
-            {
-                if(connection.GetType() == typeof(ActionNode))
-                {
-                    // returnConnections.Add((connection as ActionNode).PerformActions());
-                }
-            }
-            return returnConnections;
-        }
-
-        public virtual void SetDefault()
-        {
-            connections = new List<DialogueNode>();
-            guid = GUID.Generate().ToString();
-            name = guid;
+            return connections;
         }
         
         public string GetID()
@@ -47,9 +53,15 @@ namespace  DialogueSystem
         {
             nodePosition = newPosition;
         }
+        public bool CheckCondition()
+        {
+            // TODO interface with the ConditionChecker to actually check the condition
+            return conditions.Count == 0;
+        }
         private void OnValidate() {
             ValueChanged?.Invoke();
         }
+        
     }
 }
 

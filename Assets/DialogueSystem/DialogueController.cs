@@ -26,30 +26,53 @@ namespace DialogueSystem
 
         public void Next()
         {
-            // TODO Filter based on conditions
-            ;
+            List<DialogueNode> nextNodes = FilterOnCondition(currentNode.GetConnections());
+            if(!nextNodes[0].IsPlayerChoice())
+            {
+                // TODO add support for branching on non player choice nodes
+                currentNode = nextNodes[0];
+                OnNodeChanged?.Invoke();
+            }
         }
         public void OnChoiceSelected(DialogueNode choice)
         {
             currentNode = choice;
             OnNodeChanged?.Invoke();
+            Next();
         }
 
         public bool HasNext()
         {
-            // TODO Filter based on conditions
             return currentNode.GetConnections().Count > 0;
         }
-        // public bool IsChoosing()
-        // {
-        //     // TODO create a function to filter based on condition && check all of the connecting nodes. Not all are going to be choice
-        //     return currentNode.GetConnections()[0].IsPlayerChoice();
-        // }
+        public bool IsChoosing()
+        {
+            return currentNode.IsPlayerChoice();
+        }
 
         public bool IsActive()
         {
             return currentDialogue != null;
         }
+        public void EndDialogue()
+        {
+            currentDialogue = null;
+            currentNode = null;
+            OnDialogueEnded?.Invoke();
+        }
+        private List<DialogueNode> FilterOnCondition(List<DialogueNode> checkNodes)
+        {
+            List<DialogueNode> returnNodes = new List<DialogueNode>();
+            foreach(var node in checkNodes)
+            {
+                if(node.CheckCondition())
+                {
+                    returnNodes.Add(node);
+                }
+            }
+            return returnNodes;
+        }
+
         // public Speaker GetSpeaker()
         // {
         //     return currentNode.GetSpeaker();
