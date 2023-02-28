@@ -10,6 +10,7 @@ namespace DialogueSystem
         private Dialogue currentDialogue;
         private DialogueNode currentNode;
         private NPCSpeaker npcSpeaker;
+        private bool isChoosing;
 
         public event Action OnNodeChanged;
         public event Action OnDialogueStarted;
@@ -17,22 +18,35 @@ namespace DialogueSystem
 
         public void StartDialogue(Dialogue givenDialogue, NPCSpeaker speaker)
         {
+            if(IsActive()){return;}
+            
             currentDialogue = givenDialogue;
             currentNode = givenDialogue.GetNodes()[0];
             npcSpeaker = speaker;
 
-            OnNodeChanged?.Invoke();
+            OnDialogueStarted?.Invoke();
         }
 
         public void Next()
         {
-            List<DialogueNode> nextNodes = FilterOnCondition(currentNode.GetConnections());
-            if(!nextNodes[0].IsPlayerChoice())
+            if(!HasNext())
             {
+                EndDialogue();
+                return;
+            }
+
+            List<DialogueNode> nextNodes = FilterOnCondition(currentNode.GetConnections());
+            if(nextNodes[0].IsPlayerChoice())
+            {
+                isChoosing = true;
+            }
+            else
+            {
+                isChoosing = false;
                 // TODO add support for branching on non player choice nodes
                 currentNode = nextNodes[0];
-                OnNodeChanged?.Invoke();
             }
+            OnNodeChanged?.Invoke();
         }
         public void OnChoiceSelected(DialogueNode choice)
         {
@@ -43,11 +57,19 @@ namespace DialogueSystem
 
         public bool HasNext()
         {
-            return currentNode.GetConnections().Count > 0;
+            return FilterOnCondition(currentNode.GetConnections()).Count > 0;
+        }
+        public DialogueNode GetCurrentNode()
+        {
+            return currentNode;
         }
         public bool IsChoosing()
         {
-            return currentNode.IsPlayerChoice();
+            return isChoosing;
+        }
+        public List<DialogueNode> GetChoices()
+        {
+            return FilterOnCondition(currentNode.GetConnections());
         }
 
         public bool IsActive()
@@ -72,18 +94,5 @@ namespace DialogueSystem
             }
             return returnNodes;
         }
-
-        // public Speaker GetSpeaker()
-        // {
-        //     return currentNode.GetSpeaker();
-        // }
-        // public string GetLine()
-        // {
-        //     if(!currentDialogue)
-        //     {
-        //         return "";
-        //     }
-        //     return currentNode.GetLine();
-        // }
     }
 }

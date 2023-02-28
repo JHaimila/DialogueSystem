@@ -22,6 +22,9 @@ namespace  DialogueSystem
         public void SetDefault()
         {
             line = "[Unwritten Dialogue]";
+            guid = System.Guid.NewGuid().ToString();
+            name = guid;
+            connections = new List<DialogueNode>();
         }
         public string GetLine()
         {

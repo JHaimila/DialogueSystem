@@ -8,15 +8,9 @@ namespace DialogueSystem
     [CreateAssetMenu]
     public class Dialogue : ScriptableObject
     {
-        private List<DialogueNode> nodes;
+        [SerializeField] private List<DialogueNode> nodes = new List<DialogueNode>();
         [SerializeField] private bool repeatable;
         private bool played;
-
-        public Dialogue()
-        {
-            nodes = new List<DialogueNode>();
-            // AddNode();
-        }
 
         
         

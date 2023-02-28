@@ -4,9 +4,10 @@ using UnityEngine;
 
 namespace DialogueSystem
 {
+    [CreateAssetMenu]
     public class Speaker : ScriptableObject
     {
-        private string displayName;
-        private Sprite icon;
+        public string displayName;
+        public Sprite icon;
     }
 }

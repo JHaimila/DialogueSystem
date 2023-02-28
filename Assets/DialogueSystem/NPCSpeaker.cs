@@ -10,11 +10,16 @@ namespace DialogueSystem
 
         public void StartDialogue()
         {
-            
+            GameObject.FindGameObjectWithTag("Player").GetComponent<DialogueController>().StartDialogue(dialogue, this);
         }
         public void EndDialogue()
         {
 
         }
+        public void SetDialogue(Dialogue dialogue)
+        {
+            this.dialogue = dialogue;
+        }
+        
     }
 }
