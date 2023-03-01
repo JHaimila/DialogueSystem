@@ -18,7 +18,12 @@ MonoBehaviour:
   line: B
   speaker: {fileID: 11400000, guid: a59322290a376d74faa538c97723f903, type: 2}
   playerChoice: 1
-  conditions: []
+  conditions:
+  - conditionType: 0
+    reference: Quest1
+    negate: 1
+  enterAction: 
+  exitAction: 
 --- !u!114 &-7190291358588099651
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -38,6 +43,8 @@ MonoBehaviour:
   speaker: {fileID: 11400000, guid: a59322290a376d74faa538c97723f903, type: 2}
   playerChoice: 1
   conditions: []
+  enterAction: 
+  exitAction: 
 --- !u!114 &-3868707588570230852
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -59,6 +66,8 @@ MonoBehaviour:
   speaker: {fileID: 11400000, guid: c88185c374142fc4b8e8d82bf8c714f1, type: 2}
   playerChoice: 0
   conditions: []
+  enterAction: 
+  exitAction: 
 --- !u!114 &-27900650489572888
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -80,6 +89,8 @@ MonoBehaviour:
   speaker: {fileID: 11400000, guid: c88185c374142fc4b8e8d82bf8c714f1, type: 2}
   playerChoice: 0
   conditions: []
+  enterAction: 
+  exitAction: 
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -123,6 +134,8 @@ MonoBehaviour:
   speaker: {fileID: 11400000, guid: c88185c374142fc4b8e8d82bf8c714f1, type: 2}
   playerChoice: 0
   conditions: []
+  enterAction: TestEnterAction
+  exitAction: 
 --- !u!114 &4654951124306457345
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -142,6 +155,8 @@ MonoBehaviour:
   speaker: {fileID: 11400000, guid: a59322290a376d74faa538c97723f903, type: 2}
   playerChoice: 1
   conditions: []
+  enterAction: 
+  exitAction: 
 --- !u!114 &4819188621441141965
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -160,6 +175,8 @@ MonoBehaviour:
   speaker: {fileID: 11400000, guid: c88185c374142fc4b8e8d82bf8c714f1, type: 2}
   playerChoice: 0
   conditions: []
+  enterAction: 
+  exitAction: TestExitAction
 --- !u!114 &5929344432600476360
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -179,6 +196,8 @@ MonoBehaviour:
   speaker: {fileID: 11400000, guid: a59322290a376d74faa538c97723f903, type: 2}
   playerChoice: 1
   conditions: []
+  enterAction: 
+  exitAction: 
 --- !u!114 &6342354654488933649
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -198,3 +217,5 @@ MonoBehaviour:
   speaker: {fileID: 11400000, guid: a59322290a376d74faa538c97723f903, type: 2}
   playerChoice: 1
   conditions: []
+  enterAction: 
+  exitAction: 

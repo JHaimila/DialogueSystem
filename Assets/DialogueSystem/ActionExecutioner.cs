@@ -1,18 +1,31 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
-public class ActionExecutioner : MonoBehaviour
+namespace DialogueSystem
 {
-    // Start is called before the first frame update
-    void Start()
+    public class ActionExecutioner : MonoBehaviour
     {
-        
-    }
+        [SerializeField] private List<ExecuteAction> actions;
 
-    // Update is called once per frame
-    void Update()
+        public void PerformAction(string reference)
+        {
+            foreach(var action in actions)
+            {
+                Debug.Log(action.reference+" : "+reference);
+                if(action.reference == reference)
+                {
+                    action.triggers.Invoke();
+                    return;
+                }
+            }
+        }
+    }
+    [System.Serializable]
+    public class ExecuteAction
     {
-        
+        public string reference;
+        public UnityEvent triggers;
     }
 }

@@ -148,6 +148,7 @@ GameObject:
   - component: {fileID: 8256546785081530175}
   - component: {fileID: 4426737865368702308}
   - component: {fileID: 2373518899499798931}
+  - component: {fileID: 5317993665050652494}
   m_Layer: 5
   m_Name: DialogueButton
   m_TagString: Untagged
@@ -283,3 +284,48 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogue: {fileID: 0}
+--- !u!114 &5317993665050652494
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9212785227028917235}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2eec4c99e3d1c846ae8f00bf117bbc9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  actions:
+  - reference: TestEnterAction
+    triggers:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 9212785227028917235}
+          m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_MethodName: SetActive
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - reference: TestExitAction
+    triggers:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 9212785227028917235}
+          m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_MethodName: SetActive
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2

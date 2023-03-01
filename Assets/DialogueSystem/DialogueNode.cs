@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
+using Conditions;
 
 namespace  DialogueSystem
 {
@@ -17,7 +18,9 @@ namespace  DialogueSystem
         [SerializeField, TextArea(3, 10)] private string line;
         [SerializeField] private Speaker speaker;
         [SerializeField] private bool playerChoice;
-        [SerializeField] private List<string> conditions;
+        [SerializeField] private List<Condition> conditions;
+        [SerializeField] private string enterAction;
+        [SerializeField] private string exitAction;
 
         public void SetDefault()
         {
@@ -56,10 +59,18 @@ namespace  DialogueSystem
         {
             nodePosition = newPosition;
         }
-        public bool CheckCondition()
+        public string GetEnterAction()
+        {
+            return enterAction;
+        }
+        public string GetExitAction()
+        {
+            return exitAction;
+        }
+        public List<Condition> GetConditions()
         {
             // TODO interface with the ConditionChecker to actually check the condition
-            return conditions.Count == 0;
+            return conditions;
         }
         private void OnValidate() {
             ValueChanged?.Invoke();
