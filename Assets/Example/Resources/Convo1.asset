@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-5736900438593874282
+--- !u!114 &-8163755051017649793
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -10,14 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 47f454121c55c734b8d217448e7947a1, type: 3}
-  m_Name: 4792ecc1-7c70-459f-97ad-b0a106cbfdb8
+  m_Name: 3b843dce-d6a7-441b-a9bb-dc893aafa891
   m_EditorClassIdentifier: 
-  guid: 4792ecc1-7c70-459f-97ad-b0a106cbfdb8
-  line: D2
+  connections:
+  - {fileID: 4819188621441141965}
+  guid: 3b843dce-d6a7-441b-a9bb-dc893aafa891
+  line: B
   speaker: {fileID: 11400000, guid: a59322290a376d74faa538c97723f903, type: 2}
   playerChoice: 1
   conditions: []
---- !u!114 &-4737252206130255872
+--- !u!114 &-7190291358588099651
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -27,14 +29,37 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 47f454121c55c734b8d217448e7947a1, type: 3}
-  m_Name: 4268d76c-42e5-4caa-8ada-60779dc45457
+  m_Name: 639545ff-4f64-4a7f-8e3f-1c976545a399
   m_EditorClassIdentifier: 
-  guid: 4268d76c-42e5-4caa-8ada-60779dc45457
-  line: C
+  connections:
+  - {fileID: 4819188621441141965}
+  guid: 639545ff-4f64-4a7f-8e3f-1c976545a399
+  line: A
+  speaker: {fileID: 11400000, guid: a59322290a376d74faa538c97723f903, type: 2}
+  playerChoice: 1
+  conditions: []
+--- !u!114 &-3868707588570230852
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47f454121c55c734b8d217448e7947a1, type: 3}
+  m_Name: 82f90f4a-8971-44fc-9886-1879257f87a4
+  m_EditorClassIdentifier: 
+  connections:
+  - {fileID: -7190291358588099651}
+  - {fileID: -8163755051017649793}
+  - {fileID: 5929344432600476360}
+  guid: 82f90f4a-8971-44fc-9886-1879257f87a4
+  line: Yo I guess
   speaker: {fileID: 11400000, guid: c88185c374142fc4b8e8d82bf8c714f1, type: 2}
   playerChoice: 0
   conditions: []
---- !u!114 &-4502539464592190336
+--- !u!114 &-27900650489572888
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -44,29 +69,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 47f454121c55c734b8d217448e7947a1, type: 3}
-  m_Name: db82d0de-946b-4cf4-b02a-60c268fdf8c2
+  m_Name: 83254715-7c4e-409d-a3f7-183c0363fa42
   m_EditorClassIdentifier: 
-  guid: db82d0de-946b-4cf4-b02a-60c268fdf8c2
-  line: D1
-  speaker: {fileID: 11400000, guid: a59322290a376d74faa538c97723f903, type: 2}
-  playerChoice: 1
-  conditions: []
---- !u!114 &-4102326461649784098
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 47f454121c55c734b8d217448e7947a1, type: 3}
-  m_Name: df930604-1a9b-4931-a4bf-40f0c486b320
-  m_EditorClassIdentifier: 
-  guid: df930604-1a9b-4931-a4bf-40f0c486b320
-  line: B2
-  speaker: {fileID: 11400000, guid: a59322290a376d74faa538c97723f903, type: 2}
-  playerChoice: 1
+  connections:
+  - {fileID: -7190291358588099651}
+  - {fileID: -8163755051017649793}
+  - {fileID: 5929344432600476360}
+  guid: 83254715-7c4e-409d-a3f7-183c0363fa42
+  line: Hi
+  speaker: {fileID: 11400000, guid: c88185c374142fc4b8e8d82bf8c714f1, type: 2}
+  playerChoice: 0
   conditions: []
 --- !u!114 &11400000
 MonoBehaviour:
@@ -78,19 +90,20 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5bbc3ba7c353a4c43a7f25c00ebdb1cd, type: 3}
-  m_Name: New Dialogue
+  m_Name: Convo1
   m_EditorClassIdentifier: 
   nodes:
-  - {fileID: 6396069018158004693}
-  - {fileID: 7364545740730185197}
-  - {fileID: -4102326461649784098}
-  - {fileID: -4737252206130255872}
-  - {fileID: -4502539464592190336}
-  - {fileID: -5736900438593874282}
-  - {fileID: 668310983821910884}
-  - {fileID: 8666464263403388670}
+  - {fileID: 606112843801283455}
+  - {fileID: 6342354654488933649}
+  - {fileID: 4654951124306457345}
+  - {fileID: -3868707588570230852}
+  - {fileID: -27900650489572888}
+  - {fileID: -7190291358588099651}
+  - {fileID: -8163755051017649793}
+  - {fileID: 5929344432600476360}
+  - {fileID: 4819188621441141965}
   repeatable: 0
---- !u!114 &668310983821910884
+--- !u!114 &606112843801283455
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -100,31 +113,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 47f454121c55c734b8d217448e7947a1, type: 3}
-  m_Name: 36496797-0840-48af-91f8-e0380e75039a
+  m_Name: 300ed0e4-2b48-45c9-9dd4-712ab4a2e7da
   m_EditorClassIdentifier: 
-  guid: 36496797-0840-48af-91f8-e0380e75039a
-  line: D3
-  speaker: {fileID: 11400000, guid: a59322290a376d74faa538c97723f903, type: 2}
-  playerChoice: 1
-  conditions: []
---- !u!114 &6396069018158004693
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 47f454121c55c734b8d217448e7947a1, type: 3}
-  m_Name: a6ebeb24-6032-44b6-a70f-928467b822ee
-  m_EditorClassIdentifier: 
-  guid: a6ebeb24-6032-44b6-a70f-928467b822ee
-  line: A
+  connections:
+  - {fileID: 6342354654488933649}
+  - {fileID: 4654951124306457345}
+  guid: 300ed0e4-2b48-45c9-9dd4-712ab4a2e7da
+  line: What?
   speaker: {fileID: 11400000, guid: c88185c374142fc4b8e8d82bf8c714f1, type: 2}
   playerChoice: 0
   conditions: []
---- !u!114 &7364545740730185197
+--- !u!114 &4654951124306457345
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -134,14 +133,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 47f454121c55c734b8d217448e7947a1, type: 3}
-  m_Name: 9da3623e-3ce1-4a06-980b-d3387c9c146f
+  m_Name: dae00938-7aa0-423b-bf1a-76214c8b60e1
   m_EditorClassIdentifier: 
-  guid: 9da3623e-3ce1-4a06-980b-d3387c9c146f
-  line: B1
+  connections:
+  - {fileID: -27900650489572888}
+  guid: dae00938-7aa0-423b-bf1a-76214c8b60e1
+  line: Howdy
   speaker: {fileID: 11400000, guid: a59322290a376d74faa538c97723f903, type: 2}
   playerChoice: 1
   conditions: []
---- !u!114 &8666464263403388670
+--- !u!114 &4819188621441141965
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -151,10 +152,49 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 47f454121c55c734b8d217448e7947a1, type: 3}
-  m_Name: f054d675-5bda-424f-8281-5ea25f087378
+  m_Name: a8e80d6d-2f8a-4651-9235-951d2b2ed4c5
   m_EditorClassIdentifier: 
-  guid: f054d675-5bda-424f-8281-5ea25f087378
-  line: '[Unwritten Dialogue]'
+  connections: []
+  guid: a8e80d6d-2f8a-4651-9235-951d2b2ed4c5
+  line: Bye
   speaker: {fileID: 11400000, guid: c88185c374142fc4b8e8d82bf8c714f1, type: 2}
   playerChoice: 0
+  conditions: []
+--- !u!114 &5929344432600476360
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47f454121c55c734b8d217448e7947a1, type: 3}
+  m_Name: 38e34df4-b985-4e5a-866a-4641e98f473c
+  m_EditorClassIdentifier: 
+  connections:
+  - {fileID: 4819188621441141965}
+  guid: 38e34df4-b985-4e5a-866a-4641e98f473c
+  line: C
+  speaker: {fileID: 11400000, guid: a59322290a376d74faa538c97723f903, type: 2}
+  playerChoice: 1
+  conditions: []
+--- !u!114 &6342354654488933649
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47f454121c55c734b8d217448e7947a1, type: 3}
+  m_Name: 2f275f67-4fe7-404a-80ff-a802760f34ee
+  m_EditorClassIdentifier: 
+  connections:
+  - {fileID: -3868707588570230852}
+  guid: 2f275f67-4fe7-404a-80ff-a802760f34ee
+  line: Yooo
+  speaker: {fileID: 11400000, guid: a59322290a376d74faa538c97723f903, type: 2}
+  playerChoice: 1
   conditions: []

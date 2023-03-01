@@ -8,7 +8,7 @@ namespace  DialogueSystem
     public class DialogueNode : ScriptableObject
     {
         
-        internal List<DialogueNode> connections;
+        [SerializeField] internal List<DialogueNode> connections;
         
         [SerializeField] internal string guid;
         
