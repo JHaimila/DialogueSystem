@@ -14,10 +14,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   connections: []
   guid: 2d6d4995-8db4-4296-8b06-c3e941dd4ceb
+  nodePosition: {x: 346, y: 176}
   line: C
   speaker: {fileID: 11400000, guid: c88185c374142fc4b8e8d82bf8c714f1, type: 2}
   playerChoice: 0
   conditions: []
+  enterAction: 
+  exitAction: 
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -50,10 +53,13 @@ MonoBehaviour:
   connections:
   - {fileID: 9037119601587167622}
   guid: 197c6f4c-4734-4963-8a97-03938232058e
+  nodePosition: {x: 60.95984, y: 175.99998}
   line: A
   speaker: {fileID: 11400000, guid: c88185c374142fc4b8e8d82bf8c714f1, type: 2}
   playerChoice: 0
   conditions: []
+  enterAction: 
+  exitAction: 
 --- !u!114 &9037119601587167622
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -69,7 +75,10 @@ MonoBehaviour:
   connections:
   - {fileID: -1026147020805659018}
   guid: e1361506-1b15-48e9-b9c1-c3cc6e71b212
+  nodePosition: {x: 213, y: 176}
   line: B
   speaker: {fileID: 11400000, guid: c88185c374142fc4b8e8d82bf8c714f1, type: 2}
   playerChoice: 0
   conditions: []
+  enterAction: 
+  exitAction: 

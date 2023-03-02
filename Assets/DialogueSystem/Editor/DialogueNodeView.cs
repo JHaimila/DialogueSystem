@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEditor;
 using UnityEditor.Experimental.GraphView;
 
 namespace DialogueSystem.Editor
@@ -9,7 +10,9 @@ namespace DialogueSystem.Editor
     public class DialogueNodeView : Node
     {
         public DialogueNode node;
-        public Action<DialogueNodeView> OnNodeSelected;
+        public List<DialogueNode> nodes;
+        public Action OnNodeSelected;
+        public Action OnNodeDeselected;
         public Port inputPort;
         public Port outputPort;
         public DialogueNodeView(DialogueNode node)
@@ -22,7 +25,18 @@ namespace DialogueSystem.Editor
             style.top = node.GetPosition().y;
 
             CreateInputPorts();
-            CreateOutputPorts();
+            CreateOutputPorts("");
+        }
+        public DialogueNodeView(List<DialogueNode> nodes)
+        {
+            this.nodes = nodes;
+            this.title = "Player Choice";
+
+            CreateInputPorts();
+            foreach(var node in nodes)
+            {
+                Port tPort = CreateOutputPorts(node.GetLine());
+            }
         }
 
         private void CreateInputPorts()
@@ -31,33 +45,39 @@ namespace DialogueSystem.Editor
 
             if(inputPort != null)
             {
-                inputPort.portName = "";
+                inputPort.portName = node.GetLine();
                 inputContainer.Add(inputPort);
             }
         }
-        private void CreateOutputPorts()
+        private Port CreateOutputPorts(string portName)
         {
             outputPort = InstantiatePort(Orientation.Horizontal, Direction.Output, Port.Capacity.Multi, typeof(bool));
 
             if(outputPort != null)
             {
-                outputPort.portName = "";
+                outputPort.portName = portName;
                 outputContainer.Add(outputPort);
             }
+            return outputPort;
         }
+
+        
 
         public override void SetPosition(Rect newPos)
         {
             base.SetPosition(newPos);
-
             node.SetPosition(new Vector2(newPos.xMin,newPos.yMin));
-
+            EditorUtility.SetDirty(node);
         }
-
         public override void OnSelected()
         {
             base.OnSelected();
-            OnNodeSelected?.Invoke(this);
+            OnNodeSelected?.Invoke();
+        }
+        public override void OnUnselected()
+        {
+            base.OnUnselected();
+            OnNodeDeselected?.Invoke(); 
         }
     }
 }

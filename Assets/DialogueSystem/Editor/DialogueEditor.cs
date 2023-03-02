@@ -2,6 +2,7 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.UIElements;
 using UnityEditor.UIElements;
+using System.Collections.Generic;
 
 namespace DialogueSystem.Editor
 {
@@ -10,6 +11,8 @@ namespace DialogueSystem.Editor
         GridView gridView;
         InspectorView inspectorView;
         private Button refreshButton;
+        private Button saveButton;
+        private Button focusButton;
 
         [MenuItem("Window/UI Toolkit/DialogueEditor")]
         public static void ShowExample()
@@ -34,26 +37,66 @@ namespace DialogueSystem.Editor
             root.styleSheets.Add(styleSheet);
 
             gridView = root.Q<GridView>();
+
             inspectorView = root.Q<InspectorView>();
+
             refreshButton = root.Q<Button>("refreshBtn");
             refreshButton.clicked += OnSelectionChange;
 
+            saveButton = root.Q<Button>("saveBtn");
+            saveButton.clicked += SaveDialogue;
+
+            focusButton = root.Q<Button>("focusBtn");
+            focusButton.clicked += FocusContent;
+
             OnSelectionChange();
             gridView.OnNodeSelected += OnNodeSelectionChanged;
+            gridView.OnNodeDeselected += ClearInspector;
 
         }
         private void OnSelectionChange() 
         {
+            SaveDialogue();
             Dialogue dialogue = Selection.activeObject as Dialogue;
             if(dialogue)
             {
                 gridView.PopulateView(dialogue);
             }
         }
-
-        void OnNodeSelectionChanged(DialogueNodeView node)
+        private void SaveDialogue()
         {
-            inspectorView.UpdateSelection(node);
+            gridView.SaveDialogue();
+        }
+        private void FocusContent()
+        {
+            gridView.FrameAll();
+        }
+
+        void OnNodeSelectionChanged()
+        {
+            
+            List<DialogueNode> giveNodes = new List<DialogueNode>();
+            foreach(var select in gridView.selection)
+            {
+                DialogueNodeView tnode = select as DialogueNodeView;
+                if(tnode != null)
+                {
+                    giveNodes.Add(tnode.node);
+                }
+            }
+            inspectorView.UpdateSelection(giveNodes.ToArray());
+            SaveDialogue();
+        }
+        private void ClearInspector()
+        {
+            if(gridView.selection.Count > 0)
+            {
+                inspectorView.Clear();
+            }
+        }
+        void OnNodeDeselected()
+        {
+            OnNodeSelectionChanged();
         }
     }
 }

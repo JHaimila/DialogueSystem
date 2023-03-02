@@ -15,6 +15,7 @@ MonoBehaviour:
   connections:
   - {fileID: 4819188621441141965}
   guid: 3b843dce-d6a7-441b-a9bb-dc893aafa891
+  nodePosition: {x: 282, y: 173}
   line: B
   speaker: {fileID: 11400000, guid: a59322290a376d74faa538c97723f903, type: 2}
   playerChoice: 1
@@ -39,6 +40,7 @@ MonoBehaviour:
   connections:
   - {fileID: 4819188621441141965}
   guid: 639545ff-4f64-4a7f-8e3f-1c976545a399
+  nodePosition: {x: 282, y: 65}
   line: A
   speaker: {fileID: 11400000, guid: a59322290a376d74faa538c97723f903, type: 2}
   playerChoice: 1
@@ -62,6 +64,7 @@ MonoBehaviour:
   - {fileID: -8163755051017649793}
   - {fileID: 5929344432600476360}
   guid: 82f90f4a-8971-44fc-9886-1879257f87a4
+  nodePosition: {x: 107, y: 250}
   line: Yo I guess
   speaker: {fileID: 11400000, guid: c88185c374142fc4b8e8d82bf8c714f1, type: 2}
   playerChoice: 0
@@ -85,6 +88,7 @@ MonoBehaviour:
   - {fileID: -8163755051017649793}
   - {fileID: 5929344432600476360}
   guid: 83254715-7c4e-409d-a3f7-183c0363fa42
+  nodePosition: {x: 107, y: 115}
   line: Hi
   speaker: {fileID: 11400000, guid: c88185c374142fc4b8e8d82bf8c714f1, type: 2}
   playerChoice: 0
@@ -130,6 +134,7 @@ MonoBehaviour:
   - {fileID: 6342354654488933649}
   - {fileID: 4654951124306457345}
   guid: 300ed0e4-2b48-45c9-9dd4-712ab4a2e7da
+  nodePosition: {x: -172.95998, y: 185}
   line: What?
   speaker: {fileID: 11400000, guid: c88185c374142fc4b8e8d82bf8c714f1, type: 2}
   playerChoice: 0
@@ -151,6 +156,7 @@ MonoBehaviour:
   connections:
   - {fileID: -27900650489572888}
   guid: dae00938-7aa0-423b-bf1a-76214c8b60e1
+  nodePosition: {x: -43, y: 114.5}
   line: Howdy
   speaker: {fileID: 11400000, guid: a59322290a376d74faa538c97723f903, type: 2}
   playerChoice: 1
@@ -171,6 +177,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   connections: []
   guid: a8e80d6d-2f8a-4651-9235-951d2b2ed4c5
+  nodePosition: {x: 408, y: 185}
   line: Bye
   speaker: {fileID: 11400000, guid: c88185c374142fc4b8e8d82bf8c714f1, type: 2}
   playerChoice: 0
@@ -192,6 +199,7 @@ MonoBehaviour:
   connections:
   - {fileID: 4819188621441141965}
   guid: 38e34df4-b985-4e5a-866a-4641e98f473c
+  nodePosition: {x: 282, y: 288}
   line: C
   speaker: {fileID: 11400000, guid: a59322290a376d74faa538c97723f903, type: 2}
   playerChoice: 1
@@ -213,6 +221,7 @@ MonoBehaviour:
   connections:
   - {fileID: -3868707588570230852}
   guid: 2f275f67-4fe7-404a-80ff-a802760f34ee
+  nodePosition: {x: -43, y: 250}
   line: Yooo
   speaker: {fileID: 11400000, guid: a59322290a376d74faa538c97723f903, type: 2}
   playerChoice: 1

@@ -6,6 +6,7 @@ using Conditions;
 
 namespace  DialogueSystem
 {
+    [CanEditMultipleObjects]
     public class DialogueNode : ScriptableObject
     {
         
@@ -13,7 +14,7 @@ namespace  DialogueSystem
         
         [SerializeField] internal string guid;
         
-        private Vector2 nodePosition;
+        [SerializeField, HideInInspector] private Vector2 nodePosition;
         public event System.Action ValueChanged;
         [SerializeField, TextArea(3, 10)] private string line;
         [SerializeField] private Speaker speaker;

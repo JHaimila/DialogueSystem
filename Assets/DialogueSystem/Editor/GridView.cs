@@ -4,6 +4,7 @@ using UnityEditor;
 using System;
 using System.Linq;
 using System.Collections.Generic;
+using UnityEngine;
 
 namespace DialogueSystem.Editor
 {
@@ -12,7 +13,9 @@ namespace DialogueSystem.Editor
         public new class UxmlFactory:UxmlFactory<GridView, GraphView.UxmlTraits>{}
 
         Dialogue dialogue;
-        public Action<DialogueNodeView> OnNodeSelected;
+        public Action OnNodeSelected;
+        public Action OnNodeDeselected;
+        private List<DialogueNodeView> nodeViews;
 
         public GridView()
         {
@@ -26,6 +29,18 @@ namespace DialogueSystem.Editor
         
             var styleSheet = AssetDatabase.LoadAssetAtPath<StyleSheet>("Assets/DialogueSystem/Editor/DialogueEditor.uss");
             styleSheets.Add(styleSheet);
+            nodeViews = new List<DialogueNodeView>();
+        }
+        public void SaveDialogue()
+        {
+            if(dialogue == null){return;}
+
+            EditorUtility.SetDirty(dialogue);
+            foreach(var nodeView in nodeViews)
+            {
+                EditorUtility.SetDirty(nodeView.node);
+            }
+            AssetDatabase.SaveAssets();
         }
         private void PopulateView()
         {
@@ -43,13 +58,12 @@ namespace DialogueSystem.Editor
             
             dialogue = selectedDialogue;
 
-
             graphViewChanged -= OnGraphViewChanged;
             DeleteElements(graphElements);
             graphViewChanged += OnGraphViewChanged;
 
             // Creates node views in graph
-            dialogue.GetNodes().ForEach(n => CreateNodeView(n));
+            dialogue.GetNodes().ForEach(n => CreateNodeView(n, n.GetPosition()));
 
             //Creates the lines (edges)
             dialogue.GetNodes().ForEach(n => {
@@ -100,11 +114,15 @@ namespace DialogueSystem.Editor
 
         public override void BuildContextualMenu(ContextualMenuPopulateEvent evt)
         {
+            VisualElement contentViewContainer = ElementAt(1);
+            Vector3 screenMousePosition = evt.localMousePosition;
+            Vector2 worldMousePosition = screenMousePosition - contentViewContainer.transform.position;
+            worldMousePosition *= 1 / contentViewContainer.transform.scale.x;
             // base.BuildContextualMenu(evt);
             var types = TypeCache.GetTypesDerivedFrom<DialogueNode>();
             foreach(var type in types)
             {
-                evt.menu.AppendAction($"{type.Name}", delegate{CreateNode(type);});
+                evt.menu.AppendAction($"{type.Name}", delegate{CreateNode(type, worldMousePosition);});
             }
             
         }
@@ -115,15 +133,23 @@ namespace DialogueSystem.Editor
             endPort.node != startPort.node).ToList();
         }
         
-        private void CreateNode(System.Type type)
+        
+        private void CreateNode(System.Type type, Vector2 mousePosition)
         {
-            CreateNodeView(dialogue.AddNode(type));
+            CreateNodeView(dialogue.AddNode(type), mousePosition);
         }
 
-        private void CreateNodeView(DialogueNode node)
+        private void CreateNodeView(DialogueNode node, Vector2 mousePosition)
         {
+            node.SetPosition(mousePosition);
+            Debug.Log(node.GetPosition() +" "+ mousePosition);
             DialogueNodeView nodeView = new DialogueNodeView(node);
+            nodeViews.Add(nodeView);
+            Rect nodePosition = new Rect();
+            nodePosition.position = node.GetPosition();
+            nodeView.SetPosition(nodePosition);
             nodeView.OnNodeSelected = OnNodeSelected;
+            nodeView.OnNodeDeselected = OnNodeDeselected;
             nodeView.node.ValueChanged += PopulateView;
             AddElement(nodeView);
         }
